@@ -22,6 +22,9 @@ public class Pessoa implements ITributavel{
   public void setSalario(double salario) { this.salario = salario;}
 
   public ContaCorrente getConta() {
+    if (conta == null) {
+      conta = new ContaCorrente();
+    }
     return conta;
   }
   public void setConta(ContaCorrente conta){
@@ -29,13 +32,16 @@ public class Pessoa implements ITributavel{
   }
 
   public SeguroVida getSeguro() {
-    return this.seguro;
+    if (seguro == null) {
+      seguro = new SeguroVida();
+    }
+    return seguro;
   }
   public void setSeguro(SeguroVida seguro){
     this.seguro = seguro;
   }
 
-
+  @Override
   public double calcularTributos(){
     return this.getSalario() * taxaSalario;
   }

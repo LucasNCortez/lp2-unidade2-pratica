@@ -8,7 +8,7 @@ public class ContaCorrente implements ITributavel{
   private static final double taxaContaCorrente = 0.0038; //final??
 
   public ContaCorrente(){
-    
+
   }
 
   public double getSaldo(){
@@ -32,14 +32,10 @@ public class ContaCorrente implements ITributavel{
     this.agencia = agencia;
   }
 
+  @Override
   public double calcularTributos() {
     return this.getSaldo() * taxaContaCorrente;
   }
-
-  // public double salarioTaxaDescontada(double getSalario()) {
-  //   void salarioDescontado = getSalario() - taxaFixaSeguroVida;
-  //   return salarioDescontado;
-  // }
 
   public Boolean sacar(double valor) {
     if (valor <= 0 || valor > saldo){

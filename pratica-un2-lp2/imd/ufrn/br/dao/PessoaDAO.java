@@ -26,7 +26,14 @@ public class PessoaDAO {
   public void listarPessoas(){
     System.out.print("\n");
     for(Pessoa pessoa : this.pessoas){
-      System.out.println(pessoa.getNome());
+      System.out.println("\nNome: " + pessoa.getNome());
+      System.out.printf("Salário: R$%.2f\n", pessoa.getSalario());
+      System.out.println("Agencia de conta: " + pessoa.getConta().getAgencia());
+      System.out.println("Numero de conta: " + pessoa.getConta().getNumero());
+      System.out.printf("Saldo de conta: R$%.2f\n", pessoa.getConta().getSaldo());
+      System.out.println("Numero de seguro: " + pessoa.getSeguro().getNumero());
+      System.out.println("Beneficiado de seguro: " + pessoa.getSeguro().getBeneficiado());
+      System.out.printf("Valor de seguro: R$%.2f\n", pessoa.getSeguro().getValor());
     }
   }
 
@@ -56,8 +63,10 @@ public class PessoaDAO {
       }
     }
 
-    System.out.printf("\nTotal de imposto a ser recolhido: R$%.2d", this.calcularTributosPessoas());
+    System.out.printf("\nTotal de imposto a ser recolhido: R$ %.2f", this.calcularTributosPessoas());
+  
     System.out.printf("\nMaior pagador de impostos: %s", maiorPagadorDeImpostos.getNome());
+
     System.out.printf("\nBeneficiado do seguro de maior valor: %s", seguroComMaiorValor.getBeneficiado());
   }
   
